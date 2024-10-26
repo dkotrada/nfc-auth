@@ -1,7 +1,13 @@
-# Near Field Communication Authentification and Authorization
+# Near Field Communication
+## Authentification and Authorization
 
-Web client
+[Karte Web Interface](https://github.com/dkotrada/karte)
 
-Android client
+[Programm für Administrator](https://github.com/dkotrada/nfc-auth/tree/main/client/projects-source/adminstrator-pc)
 
-Server
+[Server](https://github.com/dkotrada/nfc-auth/tree/main/server)
+
+[Auxilary android apps](https://github.com/dkotrada/nfc-auth/tree/main/client/projects-source/android)
+
+
+
