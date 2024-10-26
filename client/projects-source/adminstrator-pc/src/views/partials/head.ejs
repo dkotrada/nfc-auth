@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<title>Administrator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        button#hide-for-print {
+            visibility: hidden;
+        }
+        a#hide-for-print {
+            visibility: hidden;
+        }
+        #section-to-print, #section-to-print * {
+            visibility: visible;
+        }
+        @page
+        {
+            size:  auto;   /* auto is the initial value */
+            margin: 0mm;  /* this affects the margin in the printer settings */
+        }
+    }
+</style>

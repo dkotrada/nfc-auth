@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+
+<% include ../partials/nav %>
+
+<main class="container">
+    <h3 class="alert alert-info" role="alert">Dashboard für <b>meinLaden</b></h3>
+    <div class="card-columns">
+        <div class="card text-center">
+            <!-- <img class="card-img-top img-fluid" src="..." alt="Card image cap"> -->
+            <div class="card-block">
+                <h4 class="card-title"><span class="glyphicon glyphicon-credit-card"/>Kartenleser</h4>
+                <p class="card-text">Anschauen des Inhalts einer Karte</p>
+                <p><a href="/card" class="btn btn-info">Karte einlesen</a></p>
+
+            </div>
+        </div>
+        <div class="card text-center">
+            <div class="card-block">
+                <h4 class="card-title">Personen</h4>
+                <p class="card-text">Personen Informationen anzeigen</p>
+                <p><a href="/persons" class="btn btn-info">Auflisten</a></p>
+            </div>
+        </div>
+        <div class="card text-center">
+            <div class="card-block">
+                <h4 class="card-title">Person Anlegen</h4>
+                <p class="card-text">Neue Personen vom Administrator hinzufügen.</p>
+                <p><a href="/add" class="btn btn-info">Person Hinzufügen</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+
+</html>

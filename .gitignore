@@ -1,0 +1,13 @@
+### IGNORE CLIENT START
+# Der Ordner ist für Builds (Dokumentation)
+**/sphinx
+
+# Ignoriere Ordner .idea überall. Und alles was sich darin befindet.
+**/.idea/**
+
+# Build ordner für dokumentation
+**/build/**
+
+# Ignoriere .node_modules überall. Und alles was sich darin befindet.
+**/node_modules
+### IGNORE CLIENT ENDE

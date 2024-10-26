@@ -1,0 +1,27 @@
+---
+- config:
+    - testset: "API Tests Löschen"
+# run with: pyresttest http://localhost:3000 serverdeletetest.yaml
+################################## DELETE Group
+
+- test:
+    - group: "DELETE /person/5a33e2bafac7031b65dc5ace"
+    - name: "Tab. 5.6: Entfernen einer Person über die id aus der Datenbank"
+    - url: "/person/5a33e2bafac7031b65dc5ace"
+    - method: "DELETE"
+    - validators:
+        - compare: {header: content-type, comparator: contains, expected: 'text'}
+
+- test:
+    - group: "Check Delete"
+    - name: "Sicher stellen dass die Person Sara Seniori gelöscht wurde"
+    - url: "/person/5a33e2bafac7031b65dc5ace"
+    - expected_status: [500]
+
+- test:
+    - group: "DELETE /persons"
+    - name: "Tab. 5.4: Entfernen aller Personen aus der Datenbank"
+    - url: "/persons"
+    - method: "DELETE"
+    - validators:
+        - compare: {header: content-type, comparator: contains, expected: 'text'}

@@ -1,0 +1,39 @@
+<div class="card" style="margin-bottom: 1em">
+    <h4 class="card-header">Über den nachfolgenden Button zugehörigkeit der Karte bestimmen.</h4>
+    <div class="card-body">
+        <div>
+            <p class="alert alert-warning">
+                <b>Hinweis:</b>
+                Bitte legen Sie vor Betätigen der Schaltfläche die zu lesende Karte auf das NFC-Lesegerät!
+            </p>
+            <a href="/card/read" class="btn btn-info">
+                Karte einlesen
+            </a>
+        </div>
+    </div>
+</div>
+
+<% if (person) { %>
+<%- include alert.ejs %>
+<div class="card">
+    <h4 class="card-header">
+       Karte gehört: <%= person.vorname %> <%= person.name %>
+    </h4>
+
+    <!-- TODO: Details der Person aufrufen anhang von uuid aus der Karte -->
+    <div class="card-body">
+        <p class="card-text">
+            <%= person.strasse %> <%= person.hausnummer %> <br/>
+            <%= person.postleitzahl %> <%= person.stadt %> <br/>
+            <%= person.email %> <br/>
+            PIN: <%= person.card.pin %> <br/>
+        </p>
+    </div>
+</div>
+
+<% } else { %>
+<%- include alert.ejs %>
+<% } %>
+
+
+

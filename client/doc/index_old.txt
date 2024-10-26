@@ -1,0 +1,607 @@
+.. toctree::
+	:maxdepth: 2
+
+
+=============
+Projektarbeit
+=============
+
+==========
+Einleitung
+==========
+
+Durch Entwicklung des Internets steigt die Erreichbarkeit des Einzelhandels für die Menschen, zusätzlich zu Lokalen geschäften entstünden viele rein Virtuelle Geschäfte. Jedoch stellt das Einkaufen Online für ältere Menschen oft viele Hindernisse dar. So wird z.B. Unbedingt ein E-Mail Konto benötigt um sich bei einem Online Händler zu registrieren. Für jeden weiteren Online Händler muss der Kunde sich jedes mal das Passwort ausdenken, jeder Händler stellt zudem unterschiedliche Anforderungen an die Passwortgröße und darin verwendeten Zeichen. usw.
+Im Projekt "meinLaden" möchten wir deshalb die Komplexität der Verwaltung eigenes Accounts reduzieren damit der Kunde sich aufs Einkaufen konzentrieren kann.
+
+----------
+Motivation
+----------
+
+Im Rahmen des Projekts "meinLaden" soll das gemeinsame Einkaufen in einem Geschäft von Zuhause aus ermöglicht werden. Dabei sollen sich die beteiligten Personen locker unterhalten können, ohne den Einkauf aus den Augen zu verlieren.
+
+In :numref:`(Abb. %s) <motivation_abb>` ist ein Einkaufsszenario dargestellt. Die junge Frau Julia und die Seniorin Sara benutzen jeweils ein Tablet, um sowohl miteinander als auch mit dem Einkaufsassistenten Emil im Supermarkt zu kommunizieren. Die Kommunikation findet über Video- und Audio-Kanäle statt. Emil assistiert Julia und Sara beim Einkaufen und trägt eine Video-Brille. Er hat vor sich am Einkaufswagen ein Tablet :numref:`(Abb. %s) <motivation_abb>` zur Darstellung der Einkaufsliste von Julia und Sara. Ein weiteres Gerät ist auf der Vorderseite des Einkaufswagens befestigt und zeigt die Bilder von Julia und Sara an, damit im Supermarkt anwesende Personen erkennen können, dass für Julia und Sara eingekauft wird. Dadurch soll die spontane Interaktion zwischen Personen im Supermarkt und den Seniorinnen zuhause ermöglicht werden. Zusätzlich ist der Einkaufswagen mit einer 360° Kamera und einem Scanner ausgestattet.
+
+
+---------------
+Problemstellung
+---------------
+
+Damit Julia bzw. Sara am Einkaufen teilnehmen kann, muss sie sich erst registrieren, und sich danach am Tablet (genauer gesagt an der App) anmelden. Hierbei werden oft die Kombination von Benutzernamen und Passwort verwendet, die Julia bzw. Sara sich merken muss. Um es sich besser merken zu können, werden oftmals sehr einfach zu erratende Passwörter verwendet. Das stellt ein hohes Sicherheitsrisiko für das System dar. Bei Senioren kann es mit fortschreitendem Alter dazu kommen, dass sie sich die Passwörter schlechter merken können, was ebenfalls problematisch ist.
+
+Der Einkaufsassistent Emil muss sich ebenfalls registriert haben, um sich vor dem Einkauf für Julia und Sara am System anmelden zu können. Das müssen auch alle anderen Kollegen von Emil tun, damit sie für die anderen Kunden einkaufen können. Während seines Arbeitstages muss Emil die eingesetzten Tablets wechseln, bspw. wenn die Kapazität des Akkus für den anstehenden Einkauf nicht mehr ausreicht oder ein Tablet kaputt geht. Außerdem kann es notwendig werden, dass Emil einen Kollegen während dessen Mittagspause vertritt. Das hat zur Folge, dass Emil den Einkaufswagen seines Kollegen verwendet. D.h. er muss sich an beiden Tablets anmelden.
+
+Es gibt mehrere Möglichkeiten den Problemen wie, das Merken des Passwortes, die Verwendung der unsicheren Passwörter, das Vergessen der Passwörter, schnellwechsel der Geräte zu entgegnen. Zum Beispiel die Verwendung von Fingerabruck oder Gesichterkennung.
+
+Eine weitere Lösung wäre der Einsatz von Nahfeldkommunikation (engl. Near Field Communication, NFC) Tokens bzw Karten. In Wikipedia [#f1]_ wird NFC als ein internationaler Übertragungsstandard zum kontaktlosen Austausch von Daten genannt.
+
+
+----------------
+Aufgabenstellung
+----------------
+
+Im Rahmen der vorliegenden Arbeit soll ein Konzept entwickelt werden, das den Nutzenden die Anmeldung mit Hilfe von NFC-Tags an den Android Tablets ermöglicht. Das zu entwickelnde System muss sowohl die Nutzenden als auch die NFC-Tags registrieren und verwalten können. Außerdem muss eine Zuordnung von NFC-Tag zu einem Nutzer möglich sein. Die Zuordnung der Nutzer muss auch gelöscht werden können. Es soll ein Prototyp auf der Basis von Android entwickelt und funktional validiert werden.
+
+
+-----------------
+Rahmenbedingungen
+-----------------
+
+Die Projektarbeit ist Bestandteil des Forschungsprojektes "meinLaden" und wird in enger Kooperation mit den anderen Projektmitgliedern allerdings selbständig durchgeführt. Für die Koordination und Abstimmung mit den in Projekt tätigen Personen finden regelmäßige Besprechungen statt. Es sollen ein Konzept, eine Spezifikation und zugehörige Dokumentation erstellen werden.
+
+.. _motivation_abb:
+.. figure:: img/motivation.pdf
+	:align: center
+
+	Einkaufen mit Tablets
+
+
+=======
+Konzept
+=======
+
+.. _konzept_abb:
+.. figure:: img/loesungskonzept.pdf
+	:align: center
+
+	Konzept
+
+
+
+:numref:`(Abb. %s) <konzept_abb>` zeigt das Konzept für die Anmeldung mit NFC-Tags an den Android Tablets. Um im meinLaden einkaufen zu können beantragen Julia Jungman und Sara Seniori die Karten.
+
+Da Julia Jungman die jungere von beiden ist, beantragt sie die Karte von Zuhause auf der Webseite des Providers über das Internet. :numref:`(Abb. %s) <mein_laden_karte_beantragen_abb>`  Nach erfolgreicher Eingabe der Daten in das Webseitenformular bekommt Julia die Karte und PIN per Post zugeschickt. Julia installiert das Tabletprogramm aus dem Appstore. Sobald die Karte und der PIN bei ihr eintreffen kann sie die App zum Einkaufen benutzen.
+
+Die Seniorin Sara Seniori beantragt die Karte persönlich im Supermarkt. Alex Admini empfängt sie, er fragt ihre persönlichen Daten ab und speichert sie als Person in der Datenbank des Providers ab :numref:`(Abb. %s) <person_anlegen_abb>`.  Danach erstellt er die Karte mit dazugehöriger PIN und händigt diese an Sara Seniori aus. Alex hilft Sara die meinLaden App zu installeren :numref:`(Abb. %s) <personen_details_abb>`.
+
+Alex Admini hat über das Administrationsprogramm auf seinem Computer den vom Provider bereitgestellten Zugriff auf Daten aller Kunden :numref:`(Abb. %s) <liste_der_personen_abb>`. Er bearbeitet sowohl die Aufträge, die über das Webseitenformular des Providers gestellt wurden, als auch die Aufträge, die im Supermarkt persönlich gestellt wurden :numref:`(Abb. %s) <person_anlegen_abb>`. Er kann die Karten in dem Administrationsprogramm über das an sein Computer angeschlossenes Lese-/Schreibgerät beschreiben und auslesen, nach vorhandenen Personen suchen, die Details zur jeweiligen Person anschauen, PIN neu generieren, Karte freigeben und die Person aus der Datenbank löschen. :numref:`(Abb. %s) <karte_gesperrt_abb>`
+
+Sobald Sara oder Julia die App starten werden sie aufgefordert die Karte an die Rückseite des Tablets zu halten. :numref:`(Abb. %s) <app-gestartet_abb>` Nachdem sie das gemacht haben werden sie aufgefordert die PIN einzugeben. Beide haben die Möglichkeit die PIN drei mal falsch einzugeben, danach wird die Karte gesperrt. Sara und Julia haben die PIN falsch eingegeben. Sowohl Sara als auch Julia können Hilfe zu ihrem Problem erhalten. Sara entscheidet sich beim Support anzurufen und Julia kontaktiert den Support direkt aus der App per E-Mail. Die Supportanfragen kommen bei Alex an. Nach erforderlichen Prüfung der Daten schaltet Alex die Karten wieder frei. Sara und Julia geben ihre PIN richtig ein und werden zum Einkaufsbereich von meinLaden weitergeleitet. :numref:`(Tab. %s) <bedienung_mein_laden_tab>` und :numref:`(Tab. %s) <fehler_pin_eingabe_tab>`
+
+
+.. rubric:: Footnotes
+
+.. [#f1] Wikipedia https://de.wikipedia.org/wiki/Near_Field_Communication
+
+
+==========
+Sicherheit
+==========
+
+Die Kommunikation im Projekt "meinLaden" geschieht ausschließlich über HTTPS Verbindungen. Die Daten der Kunden werden nicht in der App und nicht auf der Karte gespeichert. Speicherort der Daten ist der Server des Providers. Die Zuordnung der Karte zu den Kundendaten geschieht nur innerhalb des Servers des Providers. Die Übergabe der Karte und der PIN an den Kunden geschieht wie bei Bankkarten per Post. Der Kunde authentifiziert sich beim Provider mit der Karte und der Eingabe der PIN. Nach erfolgreicher Authentifizierung kommuniziert die App mit dem Provider mit Hilfe des von ihm ausgestellten Autorisierungstokens. Nach drei erfolglosen PIN-Eingaben wird die Karte für die Autorisierung gesperrt.
+
+.. raw:: latex
+
+	\clearpage
+
+===============
+Anwendungsfälle
+===============
+
+---------------------------
+Beantragung der Kundenkarte
+---------------------------
+
+Der Kunde kann die Karte selbst auf der Webseite des Providers über ein bereitgestelltes Formular beantragen und bekommt die Karte per Post zugeschickt. Alternativ kann er die Karte auch direkt im Supermarkt beantragen und bekommt die Karte ausgehändigt.
+
+.. code-block:: text
+	:caption: Anwendungsfall Karte beantragen
+
+	AKTOREN
+	Kunde
+
+	HAUPTVERLAUF
+	Kunde besucht die Webseite des Providers, trägt seine Daten in das Formular ein und klickt auf den "Karte beantragen" Knopf.
+
+	NACHBEDINGUNG
+	Dem Kunden wird die Meldung "Ihre Karte wurde erfolgreich Beantragt. Nach der Überprüfung Ihrer Angaben, wird die Karte und PIN per Post zugesandt." angezeigt
+
+	ALTERNATIVER VERLAUF
+	Kunde besucht den Supermarkt vor Ort und lässt seine Daten vom Administrator eintragen.
+
+	NACHBEDINGUNG
+	Der Kunde bekommt die Karte und PIN ausgehändigt.
+
+.. raw:: latex
+
+	\clearpage
+
+-------------------------------------------
+Benutzung der Karte zusammen mit dem Tablet
+-------------------------------------------
+
+Der Kunde benutzt die Karte um die Android App zu starten und den Zugang zu *meinLaden* zu bekommen.
+
+.. figure:: img/autorisierungApp.eps
+	:align: center
+	:width: 40%
+
+	App Autorisierung beim Provider
+
+.. raw:: latex
+
+	\clearpage
+
+.. code-block:: text
+	:caption: Anwendungsfall Android App öffnen
+
+	AKTOREN
+	Kundin Julia Jungman
+
+	HAUPTVERLAUF
+	Kundin legt die Karte an das NFC-Fähige Android Tablet an. Das vorinstallierte "meinLaden" App startet.
+
+	ALTERNATIVER VERLAUF
+	Kundin startet die App über das Menü des Tablets und wird aufgefordert die Karte an das Tablet anzulegen. Kundin legt die Karte an das NFC-Fähige Android Tablet an.
+
+	NACHBEDINGUNG
+	Die PIN-Eingabemaske wird der Kundin angezeigt.
+
+	AUSSERGEWÖHNLICHER VERLAUF
+	NFC Funktion des Tablets ist ausgeschaltet. Kundin versucht die App zu starten.
+
+	NACHBEDINGUNG
+	Der Kundin wird die Meldung "NFC ist nicht eingeschaltet" angezeigt.
+
+
+.. code-block:: text
+	:caption: Anwendungsfall PIN-Eingabe
+
+	AKTOREN
+	Kundin Julia Jungman
+
+	HAUPTVERLAUF
+	Die Kundin gibt ihre PIN in die Eingabemaske ein und klickt auf Ok.
+
+	NACHBEDINGUNG
+	Die Kundin wird in das Einkaufsbereich von "meinLaden" App weitergeleitet.
+
+	AUSSERGEWÖHNLICHER VERLAUF
+	Falsche PIN. Die Kundin gibt die PIN falsch ein und klickt auf Ok.
+
+	NACHBEDINGUNG
+	Der Kundin wird eine Fehlermeldung "Falsche PIN" angezeigt.
+
+	AUSSERGEWÖHNLICHER VERLAUF
+	Die Kundin gibt die PIN 3 mal falsch ein.
+
+	NACHBEDINGUNG
+	Der Kundin wird eine Fehlermeldung "Karte wurde gesperrt" und die Möglichkeit sich mit dem Support zu verbinden angezeigt.
+
+	AUSSERGEWÖHNLICHER VERLAUF
+	Verbindungsfehler. Die Kundin gibt ihre PIN in die Eingabemaske ein und klickt auf Ok.
+
+	NACHBEDINGUNG
+	Der Kundin wird eine Fehlermeldung und die Möglichkeit sich mit dem Support zu verbinden angezeigt.
+
+
+--------------------------------
+Kündigung oder Verlust der Karte
+--------------------------------
+
+Sollte ein Kunde seine Karte verloren haben, kann er diese beim Aussteller als verloren melden. Und die Kundenkarte wird gesperrt. Der Kunde kann seine Karte kündigen, daraufhin werden die Kundendaten gelöscht und die Karte verliert ihre Gültigkeit.
+
+.. figure:: img/kuendigenKarte.eps
+	:align: center
+	:width: 40%
+
+	Kündigung der Karte
+
+.. raw:: latex
+
+	\clearpage
+
+.. code-block:: text
+	:caption: Anwendungsfall Karte kündigen
+
+	AKTOREN
+	Kundin Julia Jungman
+
+	HAUPTVERLAUF
+	Die Kundin ruft den Support an und Kündigt ihre Karte.
+
+	ALTERNATIVER VERLAUF
+	Die Kundin kommt im Supermarkt vorbei und Kündigt ihre Karte.
+
+	NACHBEDINGUNG
+	Kundendaten werden aus der Datenbank gelöscht.
+
+
+.. figure:: img/karteGesperrt.eps
+	:align: center
+	:width: 40%
+
+	Karte sperren
+
+.. raw:: latex
+
+	\clearpage
+
+.. code-block:: text
+	:caption: Anwendungsfall Karte verlieren
+
+	AKTOREN
+	Kundin Sara Seniori
+
+	HAUPTVERLAUF
+	Die Kundin meldet ihre Karte beim Support als verloren.
+
+	NACHBEDINGUNG
+	Support generiert eine neue Karte an. Die alte Karte verliert ihre Gültigkeit.
+
+
+.. raw:: latex
+
+	\clearpage
+
+================================
+Technische Umsetzung des Systems
+================================
+
+------------------------
+Entwicklungstechnologien
+------------------------
+
+**Software**
+
+- Server:
+	- nodejs v8.9.3 https://nodejs.org/de/
+
+- Programmiersprachen:
+	- Java 1.8
+	- Python 2.7.12
+	- Javascript
+	- HTML
+
+- Bibliotheken:
+	- axios v0.17.0 https://github.com/axios/axios
+	- cors v2.8.4 https://www.npmjs.com/package/cors
+	- ejs v2.5.7 http://ejs.co/
+	- shelljs 0.7.8 http://documentup.com/shelljs/shelljs
+	- libnfc v1.7.1 https://github.com/nfc-tools/libnfc
+	- nfcpy v0.13.4 http://nfcpy.org/
+	- JSON Web Token v8.1.0 https://jwt.io/
+
+- Frameworks:
+	- Express v4.16.2 http://expressjs.com/de/
+	- Bootstrap v4 https://getbootstrap.com/
+	- Mongoose v4.12.4 http://mongoosejs.com/
+
+- Datenbank:
+	- MongoDB v3.4.10 https://www.mongodb.com/de/
+
+- Entwicklungsumgebungen:
+	- IntelliJ IDEA ultimate 2017.3.5 https://www.jetbrains.com/idea/
+	- Android Studio 3.0.1 https://developer.android.com/studio/
+
+- Betriebssysteme:
+	- Android 5.1 Lollipop
+	- GNU/Linux Ubuntu 16.04
+
+
+
+**Hardware**
+
+- Computer: ThinkPad 420 Core i5 8GB RAM
+- Tablets:
+- NFC Lese/Schreibgerät: NFC USB 2.0 Stick - NXP PN533 - 13.56MHz
+- NFC Karte: PVC, 85 mm x 54 mm, NTAG 216, 924 Byte
+
+
+-----------------------
+Komponenten des Systems
+-----------------------
+
+Administrationsserver
+=====================
+
+Der Administrationsserver liefert eine Weboberfläche für Administrator, um die Datensätze in der Datenbank des Providerservers zu verwalten. Er läuft auf dem Computer des Administrators an welchem auch der NFC-Leser-Schreiber über ein USB Port angeschlossen ist. Dadurch können die NFC-Fähige Karten beschrieben werden und in der Datenbank des Providers mit Personen in Verbindung gebracht werden.
+
+Das Oberflächendesign ist mit dem Bootstrap Framework erstellt, um responsiven Layout zu gewährleisten. Dadurch kann die Administratoroberfläche auch auf mobilen Geräten benutzt werden.
+
+Die Kommunikation mit dem Providerserver geschieht über die öffentliche API.
+
+
+.. _administrator_dashboard_abb:
+.. figure:: img/administrator_dashboard.png
+	:align: center
+
+	Administrator Dashboard
+
+.. _karten_leser_abb:
+.. figure:: img/karten_leser.png
+	:align: center
+
+	Kartenleser
+
+
+.. _personen_details_abb:
+.. figure:: img/personen_details.png
+	:align: center
+
+	Personendetails verwalten
+
+
+.. _karte_gesperrt_abb:
+.. figure:: img/karte_gesperrt.png
+	:align: center
+
+	Karte gesperrt
+
+
+.. _liste_der_personen_abb:
+.. figure:: img/liste_der_personen.png
+	:align: center
+
+	Personenliste mit Suchfeld
+
+.. _person_anlegen_abb:
+.. figure:: img/person_anlegen.png
+	:align: center
+
+	Anlegen neuer Person
+
+.. raw:: latex
+
+	\clearpage
+
+
+Providerserver
+==============
+
+Das Oberflächendesign ist mit dem Bootstrap Framework erstellt, um responsiven Layout zu gewährleisten. Um eine Karte zu beantragen können die Kunden verschiedene Geräte benutzen und die Darstellung wird automatisch angepasst.
+
+Der Server benutzt eine dokumentenorierte Not only SQL Datenbank MongoDB. Die Kommunikation von Server und Datenbank wurde mit dem Mongoose Object Relational Mapper Framework realisiert.
+
+.. _mein_laden_karte_beantragen_abb:
+.. figure:: img/mein_laden_karte_beantragen.png
+	:align: center
+
+	Kunden beantragen die Karte selbst
+
+
+.. raw:: latex
+
+	\clearpage
+
+Android App
+===========
+
+Die Android Applikation wurde nativ mit Hilfe von Android SDK entwickelt und erfüllt die Minimum SDK Anforderung für die Version 5.1 Lollipop. Die App kommuniziert mit dem Providerserver über die Provider API, und verwendet die NFC-Funktion des Gerätes um die Karte auszulesen.
+
+
+--------------------------
+User Interface Android App
+--------------------------
+
+Mein Laden Programm gestartet aus Android Menü
+
+
+.. _app-gestartet_abb:
+.. figure:: img/mein_laden_gruss.png
+	:width: 40%
+	:align: center
+
+	App gestartet
+
+
+
+.. |auth| image:: img/inside_mein_laden.png
+.. |pin| image:: img/pin_eingabe_an.png
+.. |pin_eingabe| image:: img/pin_eingabe_android.png
+
+.. _bedienung_mein_laden_tab:
+.. csv-table:: Bedienung meinLaden
+	:header: "App mit Karte gestartet", "PIN Eingegeben", "Autorisierungstoken"
+	:widths: 10, 10, 10
+
+	|pin_eingabe|, |pin|, |auth|
+
+
+
+.. |error3| image:: img/karte_gesperrt_android.png
+.. |error2| image:: img/pin_fehler.png
+.. |error| image:: img/allgemeiner_fehler.png
+
+.. _fehler_pin_eingabe_tab:
+.. csv-table:: Verschiedene Fehler
+	:header: "Allgemeiner Fehler", "Pin ist falsch", "Karte wurde gesperrt"
+	:widths: 10, 10, 10
+
+	|error|, |error2|, |error3|
+
+-----------------------------
+Zusammenspiel der Komponenten
+-----------------------------
+
+.. _authe-autor-beim-provider_abb:
+.. figure:: img/authe_autor_beim_provider.pdf
+	:align: center
+
+	Authentifizierung und Autorisierung beim Provider
+
+-----------------
+API Spezifikation
+-----------------
+
+Anforderungen an die API
+========================
+
+Das Application Programming Interface benutzt für die Kommunikation das *Hypertext Transfer Protocol Version 1.1*. Allgemeines Cross-Origin Ressource Sharing *Access-Control-Allow-Origin: ** ermöglicht den Zugriff auf den Server für die Clients die nicht in der selben Domain liegen.
+
+.. code-block:: text
+	:caption: **Beispiel:** Anfrage und Antwort auf die Wurzelroute des Servers
+	:name: get-root-http
+
+	GET / HTTP 1.1					# <- Anfrage
+
+	HTTP/1.1 200 OK					# <- Antwort Header
+	X-Powered-By: Express
+	Access-Control-Allow-Origin: *
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 5242
+	ETag: W/"147a-pBc3e1IBx+CyaJaSHoi293XhcqM"
+	Date: Wed, 13 Dec 2017 13:00:42 GMT
+	Connection: keep-alive
+
+	<html> ... </html>				# <- Antwort Body
+
+
+URL-Endpunkte und Operationen
+=============================
+
+
+
+
+Der Server liefert an den Endpunkten JSON-Objekte, Text und die HTML Dateien aus. Die variablen Endpunkte benutzen *<id>* um variablen Werte an die Datenbank zu übergeben. Die verwendeten Operationen sind:  *GET, POST, DELETE*. Die Fehlerbehandlung wird durch das Senden der HTTP Status Codes signalisiert. Die Verbindung zum Server ist über HTTPS gesichert. Die Zugangskontrolle zur API ist für die Tabletgeräte implementiert.
+
+|
+
+**Personen**
+
+.. _get_persons_tab:
+.. csv-table:: Ausgeben aller Personen aus der Datenbank
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET``  URL: ``/persons``
+	Antwort: , Header: ``application/json; status: {200 | 500}`` Body: ``Personen als JSON-String``
+
+Um alle Personen aus der Datenbank zu bekommen, muss eine Anfrage an den Providerserver von einem Clientprogramm gestellt werden. Beispiel URL wäre *http://beispiel.de/persons*. Die *GET* Anfrage liefert im Erfolgsfall die Statusantwort *200* und die Personendaten im JSON Format als Text. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* :numref:`(Tab. %s) <get_persons_tab>`
+
+.. _remove_persons_tab:
+.. csv-table:: Entfernen aller Personen aus der Datenbank
+	:widths: 2, 15
+
+	Anfrage , Methode: ``DELETE`` URL: ``/persons``
+	Antwort: , Header: ``text/html; status: {200 | 500}`` Body: ``Alle Personen entfernt!``
+
+Um alle Personen aus der Datenbank zu löschen, muss eine Anfrage an den Providerserver von einem Clientprogramm gestellt werden. Beispiel URL wäre *http://beispiel.de/persons*. Die *DELETE* Anfrage liefert im Erfolgsfall die Statusantwort *200*. Bei erfolglosen Anfrage bekommt das Clientprogramm die Statusantwort *500*. :numref:`(Tab. %s) <remove_persons_tab>`
+
+
+.. _get_oneperson_tab:
+.. csv-table:: Ausgeben einer Person über die id aus der Datenbank
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET`` URL: ``/persons/<id>``
+	Antwort: , Header: ``text/html; status: {200 | 500}`` Body: ``Die Person als JSON-String``
+
+Um eine einzelne Person aus der Datenbank zu bekommen, muss eine Anfrage an den Providerserver von einem Clientprogramm gestellt werden. Beispiel URL wäre *http://beispiel.de/persons/3h4k5lq33k4a5dlfzrw96*. Die *GET* Anfrage liefert im Erfolgsfall die Statusantwort *200* und die Person mit der angegebenen id *3h4k5lq33k4a5dlfzrw96* im JSON Format als Text. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* zurückgeliefert.  :numref:`(Tab. %s) <get_oneperson_tab>`
+
+
+.. _remove_oneperson_tab:
+.. csv-table:: Entfernen einer Person über die id aus der Datenbank
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET`` URL: ``/person/<id>``
+	Antwort: , Header: ``text/html; status: {200 | 500}`` Body: ``Die Personen entfernt!``
+
+Um eine einzelne Person aus der Datenbank zu löschen, muss eine Anfrage an den Providerserver von einem Clientprogramm gestellt werden. Beispiel URL wäre *http://beispiel.de/persons/3h4k5lq33k4a5dlfzrw96*. Die *GET* Anfrage entfernt im Erfolgsfall die Person mit der angegebenen id *3h4k5lq33k4a5dlfzrw96*  aus der Datenbank und liefert den Statuscode *200*. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* zurückgeliefert. :numref:`(Tab. %s) <remove_oneperson_tab>`
+
+
+.. _update_pin_tab:
+.. csv-table:: Aktualisieren des Pins einer Person in der Datenbank
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET`` URL: ``/person/pin/<id>``
+	Antwort: , Header: ``application/json; status: {200 | 500}`` Body: ``Die Person als JSON-String``
+
+Um die Pininformation zu einer Person zu aktualisieren, muss eine Anfrage an den Providerserver von einem Clientprogramm gestellt werden. Beispiel URL wäre *http://beispiel.de/person/pin/3h4k5lq33k4a5dlfzrw96*. Die *GET* Anfrage liefert die Personendaten zur angegebenen id *3h4k5lq33k4a5dlfzrw96* als Text und den Statuscode *200* aus wenn eine neue PIN erfolgreich generiert worden ist. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* zurückgeliefert. :numref:`(Tab. %s) <update_pin_tab>`
+
+.. raw:: latex
+
+	\clearpage
+
+**Karte**
+
+.. _get_card_data_tab:
+.. csv-table:: Ausgeben der Daten zur Beschreibung der Karte
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``POST`` URL: ``/persons/<id>``
+	Antwort: , Header: ``application/json; status: {200 | 500}`` Body: ``Die Person als JSON-String``
+
+Damit das Clientprogramm eine Karte bestimmten Person zuordnen kann, muss eine Anfrage an den Providerserver gestellt werden. Beispiel URL wäre *http://beispiel.de/person/3h4k5lq33k4a5dlfzrw96*. Die *POST* Anfrage liefert im Erfolgsfall die Person mit der angegebenen id *3h4k5lq33k4a5dlfzrw96*  aus der Datenbank und den Statuscode *200*. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* zurückgeliefert. :numref:`(Tab. %s) <get_card_data_tab>`
+
+
+.. _reset_card_lock_tab:
+.. csv-table:: Rücksetzen der Sperrung der Karte einer Person
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET`` URL: ``/person/authtries/<id>``
+	Antwort: , Header: ``application/json; status: {200 | 500}`` Body: ``Die Person als JSON-String``
+
+Um eine gesperrte Karte von einer Person wieder freizugeben, muss eine Anfrage an den Providerserver gestellt werden. Beispiel URL wäre *http://beispiel.de/person/authtries/3h4k5lq33k4a5dlfzrw96*. Die *GET* Anfrage hebt die Sperrung der Karte auf, liefert die Person zur angegbenen id *3h4k5lq33k4a5dlfzrw96* und den Statuscode *200* aus. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* zurückgeliefert. :numref:`(Tab. %s) <reset_card_lock_tab>`
+
+.. Trennungscharakter # weil , der Standart ist.
+.. _put_person_tab:
+.. csv-table:: Eintragung der Personendaten in die Datenbank
+	:delim: #
+	:widths: 2, 15
+
+	Anfrage: # Methode: ``POST`` URL: ``/person``
+			 # Header: ``form/data`` Body: ``titel, name, vorname, strasse, hausnummer, stadt, postleitzahl, email``
+	Antwort: # Header: ``text/html; status: {200 | 500}`` Body: ``<html> ... </html>``
+
+Um eine Person in die Datenbank des Providerservers einzutragen, muss eine *POST* Anfrage mit einzutragenden Daten :numref:`(Tab. %s) <put_person_tab>` gestellt werden. Die Beispiel URL wäre *http://beispiel.de/person* . Im Erfolgsfall werden die Personendaten in der Datenbank gespeichert, das Clientprogramm bekommt den Statuscode *200* und eine Bestätigunswebseite ausgeliefert. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* und eine Fehlerwebseite zurückgeliefert.
+
+
+.. _card_connected_person_tab:
+.. csv-table:: Ausgeben der Person, welcher die Karte gehört
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``POST`` URL: ``/personuuid`` Body: ``kartenuuid: af68ed3a-08c5-4351-8c12-ba82da4f6ed3``
+	Antwort: , Header: ``application/json; status: {200 | 500}`` Body: ``Die Person als JSON-String``
+
+Um in dem Clientprogramm die Zugehörigkeit der Karte zu einer Person herauszufinden, muss eine *POST* Anfrage an den Providerserver gestellt werden. Die Beispiel URL wäre *http://beispiel.de/personuuid*. Im Body der Anfrage ist die Karten *uuid* zu übertragen. Im Erfolgsfall liefert der Providerserver die Personendaten im JSON Format als Text und den Statuscode *200*. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* und eine Fehlerwebseite zurückgeliefert. :numref:`(Tab. %s) <card_connected_person_tab>`
+
+
+.. _tablet_auth_tab:
+.. csv-table:: Authentifizierungsanfrage vom Tablet verarbeiten
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``POST`` URL: ``/auth`` Body: ``vom Providerserver signierte Token``
+	Antwort: , Header: ``application/json; status: {200 | 500}`` Body: ``Autorisierungstoken als JSON Web Token``
+
+Damit sich das Tabletclientprogramm gegenüber dem Providerserver authntifizieren kann, muss eine *POST* Anfrage mit dem von dem Providerserver erstelltem und signiertem Token gestellt werden. Die Beispiel URL wäre *http://beispiel.de/auth*. Im Erfolgsfall wird vom Provider an das Tabletclientprogramm der Autorisierungstoken und der Statuscode *200* ausgeliefert. Im erfolglosem Fall bekommt das Clientprogramm den Statuscode *500* und eine Fehlerwebseite zurückgeliefert. :numref:`(Tab. %s) <tablet_auth_tab>`
+
+|
+
+**Webseite des Providers**
+
+.. _wurzelroute_tab:
+.. csv-table:: Wurzelroute
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET`` URL: ``/``
+	Antwort: , Header: ``text/html; status: 200`` Body: ``<html> ... </html>``
+
+Der Providerserver liefert eine Webseite mit dem Formular um eine Karte zu beantragen. Die beispiel Anfrage wäre mit einem Browser die URL *http://beispiel.de/* aufzurufen. :numref:`(Tab. %s) <wurzelroute_tab>`
+
+.. _non_route_tab:
+.. csv-table:: Alle anderen Routen
+	:widths: 2, 15
+
+	Anfrage: , Methode: ``GET`` URL: ``*``
+	Antwort: , Header: ``text/html; status: 404`` Body: ``<html> ... </html>``
+
+Wird eine Anfrage an eine nicht vorhandene URL gestellt, liefert der Providerserver eine Fehlerwebseite und den Statuscode *404* aus. Eine falsche URL wäre *http://beispiel.de/irgendwas*.
+:numref:`(Tab. %s) <non_route_tab>`

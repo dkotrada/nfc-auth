@@ -1,0 +1,93 @@
+---
+- config:
+    - testset: "API Tests des Servers"
+# run with: pyresttest http://localhost:3000 servertest.yaml
+
+################################## GET Group
+
+# ok
+- test:
+    - group: "GET /persons"
+    - name: "Tab. 5.3: Ausgeben aller Personen aus der Datenbank"
+    - url: "/persons"
+    - method: "GET"
+    - expected_status: [200]
+    - validators:
+        - compare: {header: content-type, comparator: contains, expected: 'application/json'}
+
+# ok  
+- test:
+    - group: "GET /person/5a33e2bafac7031b65dc5ace"
+    - name: "Tab. 5.5: Ausgeben einer Person über die id aus der Datenbank"
+    - url: "/person/5a33e2bafac7031b65dc5ace"
+    - method: "GET"
+    - expected_status: [200]
+    - validators:
+        - compare: {header: content-type, comparator: contains, expected: 'text/html'}
+
+- test:
+    - group: "GET /person/pin/5a33e2bafac7031b65dc5ace"
+    - name: "Tab. 5.7: Aktualisieren des Pins einer Person in der Datanbank"
+    - url: "/person/pin/5a33e2bafac7031b65dc5ace"
+    - method: "GET"
+    - expected_status: [200]
+
+- test:
+    - group: "GET /person/authtries/5a33e2bafac7031b65dc5ace"
+    - name: "Tab. 5.9: Rücksetzen der Sperrung der Karte einer Person"
+    - url: "/person/authtries/5a33e2bafac7031b65dc5ace"
+    - method: "GET"
+    - expected_status: [200]
+
+# ok
+- test:
+    - group: "GET /"
+    - name: "Tab. 5.13: Wurzelroute"
+    - url: "/"
+    - method: "GET"
+    - expected_status: [200]
+    - validators:
+        - compare: {header: content-type, comparator: contains, expected: 'text/html'}
+
+# ok
+- test:
+    - group: "GET /persons/5a904e554165f293c5abfb68"
+    - name: "Tab. 5.8: Ausgeben der Daten zur Beschreibung der Karte"
+    - url: "/persons/5a904e554165f293c5abfb68"
+    - method: "GET"
+    - expected_status: [200]
+
+# ok
+- test:
+    - group: "GET FALSE ROUTE"
+    - name: "Anfrage jeder Beliebigen Route"
+    - url: "/falseroute"
+    - method: "GET"
+    - expected_status: [404]
+
+################################## POST Group
+
+# ok
+- test:
+    - group: "POST /person"
+    - name: "Tab. 5.10: Eintragung der Personendaten in die Datenbank"
+    - url: "/person"
+    - method: "POST"
+    - body: 'title=Dr.&name=Konrad&vorname=Dieter&strasse=Kölner&hausnummer=43&stadt=Kierspe&postleitzahl=58566&email=dk@mail.ru'
+    - headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    - expected_status: [200]
+
+#- test:
+#    - group: "POST /personuuid"
+#    - name: "Tab. 5.11: Ausgeben der Person, welcher die Karte gehört"
+#    - url: "/personuuid"
+#    - method: "POST"
+
+    ### DIES IST DER TEST FÜR ANDROID GERÄT AUTHENTIFIZIERUNG SEHR SCHWIERIG
+#- test:
+#    - group: "POST /auth"
+#    - name: "Tab. 5.12: Authentifizierungsanfrage vom Tablet verarbeiten"
+#    - url: "/auth"
+#    - method: "POST" # validators ändern zu kontent
+#    - body: '{"first_name": "Gaius","id": 10,"last_name": "Baltar","login": "baltarg"}'
+#    - headers: {'Content-Type': 'application/json'}

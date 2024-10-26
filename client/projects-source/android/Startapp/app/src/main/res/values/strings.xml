@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mein Laden</string>
+    <string name="title_activity_user_area_layout">UserAreaLayout</string>
+    <string name="pin_hint"></string>
+    <string name="send_button">Weiter</string>
+    <string name="title_activity_mein_laden_layout">MeinLadenLayout</string>
+    <string name="title_activity_error_layout">ErrorLayout</string>
+    <string name="title_activity_inside_mein_laden">InsideMeinLaden</string>
+</resources>

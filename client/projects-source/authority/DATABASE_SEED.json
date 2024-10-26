@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Dr",
+    "name": "Helfers",
+    "vorname": "Emil",
+    "strasse": "Assistentenstraße",
+    "hausnummer": "23",
+    "stadt": "Neueinkaufsburg",
+    "postleitzahl": "21485",
+    "email": "emil@einkaufladen.de",
+    "authtries": 0,
+    "uuid": "af68ed3a-08c5-4351-8c12-ba82da4f6ed3",
+    "card": {
+      "pinSHA256": "249298388b45526fe70c2306ea349d612aa14e39a3d2bfcf8488f3156c200983",
+      "pin": 9553
+    }
+  },
+  {
+    "title": "Dr",
+    "name": "Jung",
+    "vorname": "Julia",
+    "strasse": "Olimpiastraße",
+    "hausnummer": "18",
+    "stadt": "Jugendburg",
+    "postleitzahl": "10485",
+    "email": "julia@jugendburg.de",
+    "authtries": 0,
+    "uuid": "b791c3c8-05b3-4bf7-a895-64eab631f826",
+    "card": {
+      "pinSHA256": "6a6a93367e7d0023a00c4020a01c8e317b38bb4ce988adeb099fdb08fff5f4d0",
+      "pin": 3953
+    }
+  },
+  {
+    "title": "Dr",
+    "name": "Seniori",
+    "vorname": "Sara",
+    "strasse": "Greisenstr",
+    "hausnummer": "75",
+    "stadt": "Ruheburg",
+    "postleitzahl": "21787",
+    "email": "sara@ruheburg.de",
+    "authtries": 0,
+    "uuid": "b74e688a-0706-4f23-8794-94a7c585b4d6",
+    "card": {
+      "pinSHA256": "41332273b0913dad65df2ba070dd6406dacff6636e0eccfa267e8d35a6ba6209",
+      "pin": 2145
+    }
+  },
+  {
+    "title": "Prof.",
+    "name": "Admini",
+    "vorname": "Alex",
+    "strasse": "Manager Allee",
+    "hausnummer": "22",
+    "stadt": "Sachwaltenhausen",
+    "postleitzahl": "39171",
+    "email": "alex@verwaltung.de",
+    "authtries": 0,
+    "uuid": "ec8a05c1-a92a-4645-bd75-5d0d1d0b733f",
+    "card": {
+      "pinSHA256": "6d0cf8b5b954edaf37fa8a5810d1c29370691b016823a9226d20e6f3412cb578",
+      "pin": 7968
+    }
+  },
+  {
+    "title": "Dr",
+    "name": "Acosta",
+    "vorname": "Ladonna",
+    "strasse": "Kropf",
+    "hausnummer": "30",
+    "stadt": "Niedzica",
+    "postleitzahl": "34-441",
+    "email": "lacosta5@netscape.com",
+    "authtries": 0,
+    "uuid": "1127de1a-c176-4b1b-a805-698a782f5eed",
+    "card": {
+      "pinSHA256": "46b7aa62226c53bc429b0179fba39215d2889b135a94664932a5789e7d68bd7d",
+      "pin": 4738
+    }
+  },
+  {
+    "title": "Stud.",
+    "name": "Bachelor",
+    "vorname": "Max",
+    "strasse": "Universitäts-Allee",
+    "hausnummer": "22",
+    "stadt": "Studistadt",
+    "postleitzahl": "39171",
+    "email": "max@uni.de",
+    "authtries": 0,
+    "uuid": "f594eb79-acd1-411a-ac9a-df4ea7b81545",
+    "card": {
+      "pinSHA256": "3e8b992727316255783e31fad4598511ffddc5be806d9b6607024b9c743f77ff",
+      "pin": 4034
+    }
+  }
+]

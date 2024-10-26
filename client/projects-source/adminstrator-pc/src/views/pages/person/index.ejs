@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body>
+
+<% include ../../partials/nav %>
+
+<main class="container">
+    <h3 class="alert alert-info">
+        Karte für die Person erstellen.
+    </h3>
+
+    <div class="col">
+        <div class="card" style="margin-bottom: 1rem">
+            <h4 class="card-header">
+                <%= person.vorname %> <%= person.name %>
+            </h4>
+            <div class="card-body">
+                <p class="card-text">
+                    <%= person.strasse %> <%= person.hausnummer %> <br/>
+                    <%= person.postleitzahl %> <%= person.stadt %> <br/>
+                    <%= person.email %> <br/>
+                    PIN: <%= person.card.pin %> <br/>
+                </p>
+            </div>
+        </div>
+
+        <%- include('../../partials/alert.ejs'); %>
+        <form method="POST" action="<%= `/persons/${person._id}` %>">
+            <button class="btn btn-danger">
+                Karte beschreiben
+            </button>
+            <a href="<%= `/person/credentials/${person._id}` %>" class="btn btn-info">
+                Personendetails
+            </a>
+
+            <input
+                    type="text"
+                    class="form-control invisible"
+                    name="uuid"
+                    value="<%= person.uuid %>" readonly>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+    <% include ../../partials/footer %>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body>
+
+<% include ../../partials/nav %>
+
+<main class="container">
+    <div class="row justify-content-md-center" style="margin-bottom: 1em;">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"> &#128269; </span>
+                <input class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Suche nach namen ...">
+            </div>
+        </div>
+    </div>
+
+    <% if (persons) { %>
+    <div class="row">
+
+        <% persons.forEach( (person) => { %>
+        <!-- partial -->
+        <div class="col">
+            <div class="person">
+                <div class="card" style="width: 20rem; margin-bottom: 1rem">
+                    <h4 class="card-header"><%= person.name %>, <%= person.vorname %></h4>
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            Email: <%= person.email %> <br/>
+                            PIN: <%= person.card.pin %> <br/>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="<%= `/person/credentials/${person._id}` %>" class="btn btn-info">Details</a>
+                        <a href="<%= `/persons/${person._id}` %>" class="btn btn-secondary">Karte beschreiben</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <% }); %>
+
+
+    </div>
+    <% } else { %>
+    <%- include('../../partials/alert.ejs'); %>
+    <% } %>
+</main>
+<footer>
+    <% include ../../partials/footer %>
+</footer>
+</body>
+
+</html>

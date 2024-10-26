@@ -1,0 +1,30 @@
+- Lösungsansatz
+
+.. _konzept_abb:
+.. figure:: img/loesungskonzept.pdf
+	:align: center
+
+	Konzept
+
+Problemanalyse
+	- Gemeinsames einkaufen
+	- Anpassungen
+	- Zusammenfassung der Anforderungen
+
+
+Lösungskonzept
+	- A
+	- B
+	- C
+
+Implementierung
+	- Hard
+	- Soft
+
+
+Funktionale Validierung
+
+Fazit
+	- Zusammenfassung
+	- Eigener BEitrag
+	- Ausblick

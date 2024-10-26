@@ -1,0 +1,28 @@
+---
+- config:
+    - testset: "API Tests des Administrator PC"
+# run with: pyresttest http://localhost:3003 administratorpctest.yaml
+
+# ok
+- test:
+    - group: "GET Administrator PC"
+    - name: "Credentials einer Person Personendetails Button"
+    - url: "/person/credentials/5a904e554165f293c5abfb67"
+    - method: "GET"
+    - expected_status: [200]
+
+# ok
+- test:
+    - group: "GET Administrator PC"
+    - name: "Credentials von der Karte Beschreiben Button"
+    - url: "/persons/credentials/5a904e554165f293c5abfb67"
+    - method: "GET"
+    - expected_status: [200]
+
+# ok
+- test:
+    - group: "GET Administrator PC"
+    - name: "Aktualisieren des Pins Pin Update Button"
+    - url: "/person/pin/5a904e554165f293c5abfb67"
+    - method: "GET"
+    - expected_status: [200]
