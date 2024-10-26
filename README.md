@@ -21,5 +21,7 @@ Ein Unternehmer z.B. Herr Feldherr möchte die Kundenbindung an das eigene Unter
 
 [Auxilary android apps](https://github.com/dkotrada/nfc-auth/tree/main/client/projects-source/android)
 
+<img src="https://github.com/dkotrada/karte/blob/master/doku/Kundenkarte-Beantragen.png">
+
 
 
